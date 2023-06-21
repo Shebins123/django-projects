@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'img/banner.jpg' %}" height="300px" width="100%">
+</div>
+<div>
+  <h1 class="text-center">OUR COLLECTIONS</h1>
+<p>All our products are developed with a complete dedication to quality,durability, and functionality.Online shopping is a form of electronic commerce which allows consumers to directly buy goods or services from a seller over the Internet using a web browser or a mobile app.Online shopping is the process whereby consumers directly buy goods or services from a seller in real-time, without an intermediary service, over the Internet. It is a form of electronic commerce. An online shop, eshop, e-store, Internet shop, webshop, webstore, online store, or virtual store evokes the physical analogy of buying products or services at a bricks-and-mortar retailer or in a shopping center.</p>
+</div>
+  <div class="container" style="margin-bottom:100px;">
+  <div class="row mx-auto">
+    {% for i in c %}
+<div class="card  border  border-dark me-5" style="width: 18rem;">
+  <img src="{{i.image.url}}" style="height:200px;width:100%"class="card-img-top" alt="...">
+  <div class="card-body" >
+    <h5 class="card-title">{{i.name}}</h5>
+    <a href="{% url 'shop:views' i.slug %}" class="btn btn-primary">product</a>
+  </div>
+</div>
+{% endfor %}
+  </div>
+  </div>
+{% endblock %}
